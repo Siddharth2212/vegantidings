@@ -15,20 +15,12 @@ import {Leader} from "../../shared/leader";
   selector: 'page-about',
   templateUrl: 'about.html',
 })
-export class AboutPage implements OnInit{
-  leaders: Leader[];
-  leaderErrMsg: String;
-
+export class AboutPage{
   constructor(public navCtrl: NavController, public navParams: NavParams, private leaderservice: LeaderProvider, @Inject('BaseURL') private BaseURL) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutPage');
-  }
-
-  ngOnInit(){
-    this.leaderservice.getLeaders()
-      .subscribe(leaders =>  this.leaders = leaders, errmess => this.leaderErrMsg = <any>errmess);
   }
 
 }

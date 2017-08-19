@@ -22,7 +22,7 @@ export class FavoriteProvider {
   }
 
   addFavorite(id: number) {
-    return this.http.get('http://vegannews.herokuapp.com/updatefavorite?id='+id+'&userid=siddharthsogani22@gmail.com')
+    return this.http.get('http://vegannewsinshorts.herokuapp.com/updatefavorite?id='+id+'&userid=siddharthsogani22@gmail.com')
       .map(res => {return this.processHttpmsgProvider.extractData(res)})
       .catch(error => {return this.processHttpmsgProvider.handleError(error)});
   }
@@ -32,13 +32,13 @@ export class FavoriteProvider {
   }
 
   getFavorites(): Observable<any> {
-    return this.http.get('http://vegannews.herokuapp.com/sampledata?userid=siddharthsogani22@gmail.com')
+    return this.http.get('http://vegannewsinshorts.herokuapp.com/sampledata?userid=siddharthsogani22@gmail.com')
       .map(res => {return this.processHttpmsgProvider.extractData(res)})
       .catch(error => {return this.processHttpmsgProvider.handleError(error)});
   }
 
   deleteFavorite(id: number) : Observable<any> {
-    return this.http.get('http://vegannews.herokuapp.com/updatefavorite2?id='+id+'&userid=siddharthsogani22@gmail.com')
+    return this.http.get('http://vegannewsinshorts.herokuapp.com/updatefavorite2?id='+id+'&userid=siddharthsogani22@gmail.com')
       .map(res => {return this.processHttpmsgProvider.extractData(res)})
       .catch(error => {return this.processHttpmsgProvider.handleError(error)});
   }

@@ -65,7 +65,7 @@ export class HomePage implements OnInit{
 
       let alert = this.alertCtrl.create({
         title: 'Confirm Unsave',
-        message: 'Do you want to unsave news?',
+        message: 'Do You Want To Remove The Story From Favorites?',
         buttons: [
           {
             text: 'Cancel',
@@ -81,11 +81,19 @@ export class HomePage implements OnInit{
                 content: 'Deleting . . .'
               });
               let toast = this.toastCtrl.create({
-                message: 'News unsaved successfully',
+                message: 'Removed From Your Favorites',
                 duration: 3000});
               loading.present();
               this.favoriteservice.deleteFavorite(id)
-                .subscribe(favorites => {loading.dismiss(); toast.present(); } ,
+                .subscribe(favorites => {
+                    loading.dismiss();
+                    toast.present();
+                    for(var i = 0; i < this.newsfeeds.length; i++){
+                      if(this.newsfeeds[i]['_id'] == id){
+                        this.newsfeeds[i]['favorites'].pop('siddharthsogani22@gmail.com');
+                      }
+                    }
+                  } ,
                   errmess =>{ this.newsfeedsErrMsg = errmess; loading.dismiss(); });
             }
           }
@@ -99,7 +107,7 @@ export class HomePage implements OnInit{
         content: 'Saving . . .'
       });
       let toast = this.toastCtrl.create({
-        message: 'News saved successfully',
+        message: 'Saved To Your Favorites',
         duration: 3000});
       loading.present();
       this.favoriteservice.addFavorite(id)
@@ -128,8 +136,7 @@ export class HomePage implements OnInit{
         .subscribe(newsfeeds =>  {this.newsfeeds = newsfeeds; console.log(this.newsfeeds); loading.dismiss(); toast.present();}, errmess => this.newsfeedsErrMsg = <any>errmess);
     }
     else{
-      var categories = ['Home', 'SEO', 'SEM', 'Analytics', 'Content Marketing', 'Mobile',
-        'Social Media Marketing', 'Google AdWords', 'Facebook'];
+      var categories = ['Home', 'News', 'Videos'];
       let toast = this.toastCtrl.create({
         message: 'Showing data for '+categories[category.value]+' category',
         duration: 3000});

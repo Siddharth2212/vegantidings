@@ -21,32 +21,25 @@
       <ion-card-title color="primary">
         Our History
       </ion-card-title>
-      Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us.
-
-      The restaurant traces its humble beginnings to The Frying Pan, a successful chain started by our CEO, Mr. Peter Pan, that featured for the first time the world's best cuisines in a pan.
+      Started in 2017, Vegan Scoop is an endeavor to keep vegans updated about veganism through collecting and curating vegan news,
+      recipes and YouTube videos from all over the internet.
     </ion-card-content>
     <ion-card-content>
       <ion-card-title color="primary">
-        Corporate Leadership
+        Our Team
       </ion-card-title>
       <ion-list>
-        <ion-item text-wrap *ngFor="let leader of leaders">
+        <ion-item text-wrap>
           <ion-avatar item-start>
-            <img src="{{BaseURL + leader.image}}">
+            <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/5/005/08a/2d1/01663a3.jpg">
           </ion-avatar>
-          <h2>{{leader.name}}</h2>
-          <h3>{{leader.designation}}</h3>
-          <p>{{leader.description}}</p>
+          <h2>Siddharth Sogani</h2>
+          <h3>Application Designer & Developer</h3>
+          <p>Aego aheg aoeig Aioeg haeoig Haeogi aheg HOIA ghIOe ghaiog haio
+          aeg hoaegh aieg aoheig haeoig haioeg o EG aoiegh aoieg HAOIeg haeg
+          agaeoghae gioaeg haeogi</p>
         </ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>
-  <div [hidden]="leaders || leaderErrMsg">
-    <ion-spinner></ion-spinner>
-    <h4>Loading . . . Please Wait</h4>
-  </div>
-  <div *ngIf="leaderErrMsg">
-    <h2>Error</h2>
-    <h4>{{leaderErrMsg}}</h4>
-  </div>
 </ion-content>

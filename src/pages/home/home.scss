@@ -4,7 +4,7 @@ page-home {
   .btn-youtube{color:#fff!important;background-color:#ff4b39!important;}
   .btn-linkedin{color:#fff!important;background-color:#007bb6!important;}
   .btn-twitter{color:#fff!important;background-color:#55acee!important;}
-  .btn-mail{color:#fff!important;background-color:#512DA8!important;}
+  .btn-whatsapp{color:#fff!important;background-color:#34af23!important;}
   ion-segment {
     display: block;
     white-space: nowrap;
@@ -19,7 +19,7 @@ page-home {
 
     ion-segment-button.segment-button {
       display: inline-block;
-      min-width: 100px;
+      min-width: 25%;
       width: auto;
     }
   }
