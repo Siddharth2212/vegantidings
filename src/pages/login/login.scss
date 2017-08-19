@@ -1,26 +1,8 @@
-page-home {
+page-login {
   .btn-facebook {color:#fff!important; background-color:#3b5998!important;}
   .btn-google-plus{color:#fff!important;background-color:#dd4b39!important;}
   .btn-youtube{color:#fff!important;background-color:#ff4b39!important;}
   .btn-linkedin{color:#fff!important;background-color:#007bb6!important;}
   .btn-twitter{color:#fff!important;background-color:#55acee!important;}
   .btn-mail{color:#fff!important;background-color:#512DA8!important;}
-  ion-segment {
-    display: block;
-    white-space: nowrap;
-    font-size: 0;
-    overflow: auto;
-
-    &::-webkit-scrollbar {
-      width: 0;
-      height: 0;
-      display: none;
-    }
-
-    ion-segment-button.segment-button {
-      display: inline-block;
-      min-width: 100px;
-      width: auto;
-    }
-  }
 }

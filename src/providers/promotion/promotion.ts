@@ -22,7 +22,19 @@ export class PromotionProvider {
   }
 
   getPromotions(): Observable<Promotion[]> {
-    return this.http.get(baseURL + 'promotions')
+    return this.http.get('http://vegannews.herokuapp.com/getapproveddata')
+      .map(res => {return this.processHttpmsgProvider.extractData(res)})
+      .catch(error => {return this.processHttpmsgProvider.handleError(error)});
+  }
+
+  getPromotionsCategory(category: number): Observable<Promotion[]> {
+    return this.http.get('http://vegannews.herokuapp.com/getapproveddata?category='+category)
+      .map(res => {return this.processHttpmsgProvider.extractData(res)})
+      .catch(error => {return this.processHttpmsgProvider.handleError(error)});
+  }
+
+  getPromotionsQuerySearch(category: number): Observable<Promotion[]> {
+    return this.http.get('http://vegannews.herokuapp.com/getapproveddata?searchString='+category)
       .map(res => {return this.processHttpmsgProvider.extractData(res)})
       .catch(error => {return this.processHttpmsgProvider.handleError(error)});
   }

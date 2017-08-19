@@ -5,80 +5,90 @@
     </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
+
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="dish">
-    <img src="{{BaseURL + dish.image}}"/>
-    <ion-card-content>
-      <ion-card-title>
-        {{dish.name | uppercase}}
-      </ion-card-title>
-      <p>
-        {{dish.description}}
-      </p>
-    </ion-card-content>
-  </ion-card>
-  <div [hidden]="dish || dishErrMess">
+  <ion-searchbar placeholder="Search News" (ionInput)="getItems($event)" animated="true"></ion-searchbar>
+    <ion-segment [(ngModel)]="newscategory"  (ionChange)="onSegmentChanged($event)"  color="secondary">
+      <ion-segment-button value="home">
+        Home
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        SEO
+      </ion-segment-button>
+      <ion-segment-button value="2">
+        SEM
+      </ion-segment-button>
+      <ion-segment-button value="3">
+        Analytics
+      </ion-segment-button>
+      <ion-segment-button value="4">
+        Content Marketing
+      </ion-segment-button>
+      <ion-segment-button value="5">
+        Mobile
+      </ion-segment-button>
+      <ion-segment-button value="6">
+        Social Media Marketing
+      </ion-segment-button>
+      <ion-segment-button value="7">
+        Google Adwords
+      </ion-segment-button>
+      <ion-segment-button value="8">
+        Facebook
+      </ion-segment-button>
+    </ion-segment>
+  <div *ngIf="newsfeeds">
+    <ion-card style="height: 100%;" *ngFor="let newsfeed of newsfeeds">
+      <img src="{{newsfeed.approved_image}}"/>
+      <ion-card-content>
+        <ion-card-title>
+          {{newsfeed.approved_title | uppercase}}
+        </ion-card-title>
+        <i>{{getHostName(newsfeed.link)}}</i><br>
+        <i>{{newsfeed.date | date}}</i>
+        <p>
+          {{newsfeed.approved_description}}
+        </p>
+        <ion-row>
+          <ion-col>
+            <ion-fab left>
+              <button ion-fab color="accent"><ion-icon name="arrow-dropup"></ion-icon></button>
+              <ion-fab-list side="top">
+                <button ion-fab class="btn-mail"><ion-icon name="mail"></ion-icon></button>
+                <button ion-fab class="btn-google-plus"><ion-icon name="logo-googleplus"></ion-icon></button>
+                <button ion-fab class="btn-twitter"><ion-icon name="logo-twitter"></ion-icon></button>
+                <button ion-fab class="btn-facebook"><ion-icon name="logo-facebook"></ion-icon></button>
+              </ion-fab-list>
+            </ion-fab>
+          </ion-col>
+          <ion-col right>
+          </ion-col>
+          <ion-col right>
+            <ion-fab top-right (click)="deleteFavorite(newsfeed._id, newsfeed.favorites.indexOf('siddharthsogani22@gmail.com'))">
+              <button ion-fab right>
+                <ion-icon *ngIf="newsfeed.favorites.indexOf('siddharthsogani22@gmail.com')==-1" name="heart-outline"></ion-icon>
+                <ion-icon *ngIf="newsfeed.favorites.indexOf('siddharthsogani22@gmail.com')!==-1" name="heart"></ion-icon>
+              </button>
+            </ion-fab>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+  <div [hidden]="newsfeeds || newsfeedsErrMsg">
     <ion-spinner></ion-spinner>
     <h4>Loading . . . Please Wait</h4>
   </div>
-  <div *ngIf="dishErrMess">
+  <div *ngIf="newsfeedsErrMsg">
     <h2>Error</h2>
-    <h4>{{dishErrMess}}</h4>
+    <h4>{{newsfeedsErrMsg}}</h4>
   </div>
-
-  <ion-card *ngIf="promotion">
-    <img src="{{BaseURL + promotion.image}}"/>
-    <ion-card-content>
-      <ion-card-title>
-        {{promotion.name | uppercase}}
-      </ion-card-title>
-      <p>
-        {{promotion.description}}
-      </p>
-    </ion-card-content>
-  </ion-card>
-  <div [hidden]="promotion || promoErrMess">
-    <ion-spinner></ion-spinner>
-    <h4>Loading . . . Please Wait</h4>
-  </div>
-  <div *ngIf="promoErrMess">
-    <h2>Error</h2>
-    <h4>{{promoErrMess}}</h4>
-  </div>
-
-  <ion-card *ngIf="leader">
-    <img src="{{BaseURL + leader.image}}"/>
-    <ion-card-content>
-      <ion-card-title>
-        {{leader.name | uppercase}}
-      </ion-card-title>
-      <p>
-        {{leader.designation}}
-      </p>
-      <p>
-        {{leader.description}}
-      </p>
-    </ion-card-content>
-  </ion-card>
-  <div [hidden]="leader || leaderErrMess">
-    <ion-spinner></ion-spinner>
-    <h4>Loading . . . Please Wait</h4>
-  </div>
-  <div *ngIf="leaderErrMess">
-    <h2>Error</h2>
-    <h4>{{leaderErrMess}}</h4>
-  </div>
-  <ion-fab right bottom>
-    <button ion-fab color="accent"><ion-icon name="arrow-dropup"></ion-icon></button>
-    <ion-fab-list side="top">
-      <button ion-fab class="btn-mail"><ion-icon name="mail"></ion-icon></button>
-      <button ion-fab class="btn-google-plus"><ion-icon name="logo-googleplus"></ion-icon></button>
-      <button ion-fab class="btn-youtube"><ion-icon name="logo-youtube"></ion-icon></button>
-      <button ion-fab class="btn-twitter"><ion-icon name="logo-twitter"></ion-icon></button>
-      <button ion-fab class="btn-facebook"><ion-icon name="logo-facebook"></ion-icon></button>
-      <button ion-fab class="btn-linkedin"><ion-icon name="logo-linkedin"></ion-icon></button>
-    </ion-fab-list>
-  </ion-fab>
 </ion-content>

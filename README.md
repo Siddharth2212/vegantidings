@@ -28,3 +28,4 @@ Substitute ios for android if not on a Mac.
 =======
 # Ionic
 >>>>>>> 384e6f1ca6956aed2f906641e5e03e44d5cc1535
+# vegantidings

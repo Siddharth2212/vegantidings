@@ -5,10 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
-import { MenuPage } from '../pages/menu/menu';
 import { ContactPage } from '../pages/contact/contact';
 import { FavoritesPage } from '../pages/favorites/favorites';
-import {ReservationPage} from "../pages/reservation/reservation";
+import {LoginPage} from "../pages/login/login";
 
 @Component({
   templateUrl: 'app.html'
@@ -29,10 +28,9 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', icon: 'home', component: HomePage },
+      { title: 'My Favorites', icon: 'heart', component: FavoritesPage },
       { title: 'About Us', icon: 'information-circle', component: AboutPage },
-      { title: 'Menu', icon: 'list-box', component: MenuPage },
-      { title: 'Contact Us', icon: 'contact', component: ContactPage },
-      { title: 'My Favorites', icon: 'heart', component: FavoritesPage }
+      { title: 'Contact Us', icon: 'contact', component: ContactPage }
     ];
 
   }
@@ -52,9 +50,10 @@ export class MyApp {
     this.nav.setRoot(page.component); //Each of the four pages act as root page of the navigation stack
   }
 
-  openReserve() {
 
-    let modal = this.modalCtrl.create(ReservationPage);
+  openLogin() {
+
+    let modal = this.modalCtrl.create(LoginPage);
     modal.present();
   }
 }

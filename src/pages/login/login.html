@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-toolbar color="primary-pale">
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Reserve Table</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <button class="btn-facebook" ion-button color="primary" full onclick="window.open('http://newsapp.io/auth/facebook', '_system', 'location=yes'); return false;">
+    <ion-icon name="logo-facebook"></ion-icon>&nbsp;&nbsp;
+    Login with Facebook
+  </button>
+  <button class="btn-twitter" ion-button color="primary" full onclick="window.open('http://newsapp.io/auth/twitter', '_system', 'location=yes'); return false;">
+    <ion-icon name="logo-twitter"></ion-icon>&nbsp;&nbsp;
+    Login with Twitter
+  </button>
+
+</ion-content>

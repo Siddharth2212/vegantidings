@@ -5,11 +5,8 @@ import {HttpModule} from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
-import { MenuPage } from '../pages/menu/menu';
 import { ContactPage } from '../pages/contact/contact';
-import { DishdetailPage } from '../pages/dishdetail/dishdetail';
 import { FavoritesPage } from '../pages/favorites/favorites';
-import { ReservationPage } from '../pages/reservation/reservation';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,18 +18,17 @@ import { PromotionProvider } from '../providers/promotion/promotion';
 import {baseURL} from '../shared/baseurl';
 import { FavoriteProvider } from '../providers/favorite/favorite';
 import {CommentPage} from "../pages/comment/comment";
+import {LoginPage} from "../pages/login/login";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AboutPage,
-    MenuPage,
     ContactPage,
-    DishdetailPage,
     FavoritesPage,
-    ReservationPage,
-    CommentPage
+    CommentPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -44,12 +40,10 @@ import {CommentPage} from "../pages/comment/comment";
     MyApp,
     HomePage,
     AboutPage,
-    MenuPage,
     ContactPage,
-    DishdetailPage,
     FavoritesPage,
-    ReservationPage,
-    CommentPage
+    CommentPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
